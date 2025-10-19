@@ -3,13 +3,21 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        //factorization
         int  n = sc.nextInt();
-        if (n == 0) {
-            System.out.println(1);
-            return;
+        for(int i = 1; i <= n; i++) {
+            if (n%i == 0) {
+                System.out.print(i+" ");
+            }
         }
-        int pattern[] = {6, 8, 4, 2};
-        int  index = n % 4;
-        System.out.println(pattern[index]);
+        System.out.println();
+        for (int i =1; i <= Math.sqrt(n); i++) {
+            if (n%i == 0) {
+                System.out.print(i+","+(n/i));
+                System.out.println();
+            }
+        }
+
+
     }
 }
