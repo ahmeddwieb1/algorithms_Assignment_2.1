@@ -4,31 +4,34 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-        int n = 1024;
-        int k = 5;
-        int array[] = new int[k];
-        // find i
-        //breack when k-1 !=0
-        for (int x = 2; x * x < n; x++) {//بيعد ال factors
-            for (int i = 0; i < k; ) {//بيعد لل array
-            if (array[k - 2] != 0) {
-                    array[k-1] = n;
-                    break;
-                }
-                while (n % x == 0 && array[k - 2] == 0) {
-                    array[i] = x;
-                    n /= x;
-                    i++;
-                }
-
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int x = n;
+        List<Integer> list = new ArrayList<>();
+        for (int i = 2; i * i <= n; i++) {
+            while (x % i == 0) {
+                x = x / i;
+                list.add(i);
             }
         }
-
-        for (int x = 0; x < k; x++) {
-            System.out.print(array[x] + " ");
+        if (x != 1) {
+            list.add(x);
         }
+        if (list.size() < k) {
+            System.out.println(-1);
+            return;
+        }
+        int ans = 1;
+        for (int i = k -1; i < list.size(); i++) {
+            int number = list.get(i);
+            ans *= number;
+//            list.remove(i);
+        }
+        list.add(k-1,ans);
 
+        for (int i = 0; i < k; i++) {
+            System.out.print(list.get(i) +" ");
+        }
     }
 }
