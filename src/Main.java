@@ -1,20 +1,25 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] numbers = {10, 20, 30, 40, 50};
-        int n= sc.nextInt();
-        System.out.println(linear_search(numbers, n));
-    }
-    public static int linear_search(int arr[], int key) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == key) {
-                return i;
-            }
+//        int n= sc.nextInt();
+//        n = 100000000 ,75000000 ,50000000 ,20000000 ,10000000
+        int n = 20000000;
+
+        int array[] = generate_array(n);
+
+        for (int i = 0; i < 15; i++) {
+            System.out.println(array[i]);
         }
-        return -1;
+    }
+
+    public static int[] generate_array(int n) {
+        int array[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            int random = (int) (Math.random() * n + 1);
+            array[i] = random;
+        }
+        return array;
     }
 }
