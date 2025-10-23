@@ -5,10 +5,13 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 //        int n= sc.nextInt();
 //        n = 100000000 ,75000000 ,50000000 ,20000000 ,10000000
-        int n = 20000000;
-
+        int n = 10000000;
+        long start = System.currentTimeMillis();
+        System.out.println("start: " + start);
         int array[] = generate_array(n);
-
+        long end = System.currentTimeMillis();
+        System.out.println("end: " + end);
+        System.out.println("all operation2: " + (end - start) + "ms");
         for (int i = 0; i < 15; i++) {
             System.out.println(array[i]);
         }
