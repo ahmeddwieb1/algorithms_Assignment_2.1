@@ -2,18 +2,17 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-//        int n= sc.nextInt();
+
 //        n = 100000000 ,75000000 ,50000000 ,20000000 ,10000000
-        int n = 10000000;
-        long start = System.currentTimeMillis();
-        System.out.println("start: " + start);
-        int array[] = generate_array(n);
-        long end = System.currentTimeMillis();
-        System.out.println("end: " + end);
-        System.out.println("all operation2: " + (end - start) + "ms");
-        for (int i = 0; i < 15; i++) {
-            System.out.println(array[i]);
+        int n[] ={ 10000000,50000000,100000000 };
+        for (int i = 0; i < n.length; i++) {
+            System.out.println("when array size ="+n[i]);
+            long start = System.currentTimeMillis();
+            System.out.println("start: " + start);
+            generate_array(n[i]);
+            long end = System.currentTimeMillis();
+            System.out.println("end: " + end);
+            System.out.println("all operation: " + (end - start) + "ms");
         }
     }
 
