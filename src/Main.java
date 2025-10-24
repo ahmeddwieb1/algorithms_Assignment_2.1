@@ -6,15 +6,15 @@ public class Main {
             int array[] = generate_array(n[i]);
             int totalTime = 0;
 
-//            System.out.println("when array size =" + n[i]);
+            System.out.println("when array size =" + n[i]);
             for (int x = 0; x < 3; x++) {
                 long start = System.currentTimeMillis();
-//                System.out.println("start: " + start);
+                System.out.println("start: " + start);
 
                 System.out.println(linear_search(array, -1));
 
                 long end = System.currentTimeMillis();
-//                System.out.println("end: " + end);
+                System.out.println("end: " + end);
                 System.out.println("try number "+x+": "+  + (end - start) + " ms");
                 totalTime += (int) (end - start);
                 System.out.println();
