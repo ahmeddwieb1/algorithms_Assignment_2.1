@@ -1,8 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-
 //        n = 100000000 ,75000000 ,50000000 ,20000000 ,10000000
-        int n[] = {10000000, 50000000, 100000000};
+        int n[] = {10000000 ,20000000 ,50000000 ,75000000 ,100000000};
         int time[] = new int[n.length];
         for (int i = 0; i < n.length; i++) {
             int array[] = generate_array(n[i]);
@@ -24,8 +23,8 @@ public class Main {
         double avg = 0;
         for (int i = 0; i < time.length; i++) {
             sum += time[i];
-            avg = (double) sum / time.length;
         }
+        avg = (double) sum / time.length;
         System.out.println("avg: " + avg);
     }
 
