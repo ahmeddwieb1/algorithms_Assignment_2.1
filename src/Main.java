@@ -5,10 +5,15 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int p = sc.nextInt();
         int q = sc.nextInt();
-        System.out.println(factorial(Math.min(q, p)));
+        System.out.println(lcm(q, p));
     }
-    public static int factorial(int x) {
-        if (x == 0) return 1;
-        return x * factorial(x - 1);
+
+    public static int gcd(int p, int q) {
+        if (q == 0) return p;
+        return gcd(q, p % q);
+    }
+
+    public static int lcm (int a, int b) {
+        return a * b / gcd(a, b);
     }
 }
