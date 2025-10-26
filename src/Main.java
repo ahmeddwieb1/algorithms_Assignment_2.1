@@ -14,9 +14,9 @@ public class Main {
         for (int i = 0; i < array.length; i++) {
             int temp = target - array[i];
             int x = linear_search(array, temp);
-            if (x != -1) {
-                System.out.print("n: "+array[i]+":"+(i+1) + " " + "target :"+temp +" :"+ (x+1));
-                break;
+            if (x != -1 && x != i) {
+                System.out.print((i + 1) + " " + (x + 1));
+                return;
             }
         }
         System.out.println("IMPOSSIBLE");
