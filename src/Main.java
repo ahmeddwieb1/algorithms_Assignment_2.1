@@ -3,17 +3,23 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int p = sc.nextInt();
-        int q = sc.nextInt();
-        System.out.println(lcm(q, p));
+        int n = sc.nextInt();
+        if (isprime(n)) {
+            System.out.println("YES");
+        }else {
+            System.out.println("NO");
+        }
     }
 
-    public static int gcd(int p, int q) {
-        if (q == 0) return p;
-        return gcd(q, p % q);
-    }
-
-    public static int lcm (int a, int b) {
-        return a * b / gcd(a, b);
+    public static boolean isprime(int x) {
+        if (x < 2) {
+            return false;
+        }
+        for (int i = 2; i * i < x; i++) {
+            if (x % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
