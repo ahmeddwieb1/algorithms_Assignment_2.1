@@ -5,42 +5,29 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-
-        int y = 0;
-        for (int i = 0; i <= n; i++) {
-            List<Integer> list = factor(i);
-            if (list.size() >= 2) {
-                int dis = 1;
-//                System.out.print(i +" : ");
-//                for (int j = 0; j < list.size(); j++) {
-//                    System.out.print(list.get(j)+" ");
-//                }
-//                System.out.println();
-                for (int j = 0; j < list.size() - 1; j++) {
-                    if (!list.get(j).equals(list.get(j + 1))) {
-                        dis++;
-                    }
-                }
-                if (dis==2){
-                    y++;
-                }
+        int size = sc.nextInt();
+        int target = sc.nextInt();
+        int array[] = new int[size];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = sc.nextInt();
+        }
+        for (int i = 0; i < array.length; i++) {
+            int temp = target - array[i];
+            int x = linear_search(array, temp);
+            if (x != -1) {
+                System.out.print("n: "+array[i]+":"+(i+1) + " " + "target :"+temp +" :"+ (x+1));
+                break;
             }
         }
-        System.out.println(y);
+        System.out.println("IMPOSSIBLE");
     }
 
-    public static List<Integer> factor(int x) {
-        List<Integer> list = new ArrayList<>();
-        for (int i = 2; i * i <= x; i++) {
-            while (x % i == 0) {
-                x = x / i;
-                list.add(i);
+    public static int linear_search(int arr[], int key) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == key) {
+                return i;
             }
         }
-        if (x != 1) {
-            list.add(x);
-        }
-        return list;
+        return -1;
     }
 }
