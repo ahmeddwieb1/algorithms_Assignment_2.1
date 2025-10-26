@@ -4,18 +4,20 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        if (isprime(n)) {
-            System.out.println("YES");
-        }else {
-            System.out.println("NO");
+        int y = 0;
+        for (int i = 0; i < n; i++) {
+            if (isprime(i)){
+                y++;
+            }
         }
+        System.out.println(y);
     }
 
     public static boolean isprime(int x) {
         if (x < 2) {
             return false;
         }
-        for (int i = 2; i * i < x; i++) {
+        for (int i = 2; i * i <= x; i++) {
             if (x % i == 0) {
                 return false;
             }
