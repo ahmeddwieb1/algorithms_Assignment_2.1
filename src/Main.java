@@ -12,22 +12,13 @@ public class Main {
             array[i] = sc.nextInt();
         }
         for (int i = 0; i < array.length; i++) {
-            int temp = target - array[i];
-            int x = linear_search(array, temp);
-            if (x != -1 && x != i) {
-                System.out.print((i + 1) + " " + (x + 1));
-                return;
+            for (int j = 0; j < array.length; j++) {
+                if (array[i] + array[j] == target && i != j) {
+                    System.out.println((i+1) + " " + (j+1));
+                    return;
+                }
             }
         }
         System.out.println("IMPOSSIBLE");
-    }
-
-    public static int linear_search(int arr[], int key) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == key) {
-                return i;
-            }
-        }
-        return -1;
     }
 }
