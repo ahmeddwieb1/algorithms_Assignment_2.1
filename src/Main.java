@@ -18,21 +18,22 @@ public class Main {
         }
         Arrays.sort(A);
         for (int i = 0; i < B.length; i++) {
-            System.out.print(upperBound(A, B[i]) + " ");
+            System.out.println(binarysearch(A, B[i]) + " ");
         }
     }
 
-    public static int upperBound(int[] arr, int value) {
+    public static int binarysearch(int[] arr, int key) {
         int left = 0, right = arr.length;
         while (left < right) {
             int mid = (left + right) / 2;
-            if (arr[mid] <= value) {
+            if (arr[mid] > key) {
+                right = mid ;
+            } else if (arr[mid] < key) {
                 left = mid + 1;
-            } else {
-                right = mid;
-            }
+            }else
+                return mid+1;
         }
-        return left;
+        return -1;
     }
 
 }
