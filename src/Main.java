@@ -13,23 +13,26 @@ public class Main {
         for (int i = 0; i < A.length; i++) {
             A[i] = sc.nextInt();
         }
-        bubbleSort(A);
-    }
-
-    public static void bubbleSort(int[] list) {
-        boolean needNextPass = true;
-
-        for (int k = 1; k < list.length && needNextPass; k++) {
-            needNextPass = false;
-            for (int i = 0; i < list.length - k; i++) {
-                if (list[i] > list[i + 1]) {
-                    // Swap list[i] with list[i + 1]
-                    int temp = list[i];
-                    list[i] = list[i + 1];
-                    list[i + 1] = temp;
-                    needNextPass = true;
-                }
-            }
+        for (int i = 0; i < B.length; i++) {
+            B[i] = sc.nextInt();
+        }
+        Arrays.sort(A);
+        for (int i = 0; i < B.length; i++) {
+            System.out.print(upperBound(A, B[i]) + " ");
         }
     }
+
+    public static int upperBound(int[] arr, int value) {
+        int left = 0, right = arr.length;
+        while (left < right) {
+            int mid = (left + right) / 2;
+            if (arr[mid] <= value) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        return left;
+    }
+
 }
