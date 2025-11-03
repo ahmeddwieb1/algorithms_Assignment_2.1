@@ -9,11 +9,17 @@ public class Main {
         int power = sc.nextInt();
         System.out.println(power(num, power));
     }
-    public static int power(int num , int pow){
-      if (pow == 1){
-          return num;
-      }
-      return num * power(num, pow - 1);
-    }
 
+    public static int power(int num, int pow) {
+        if (num == 0) {
+            return 1;
+        } else if(pow %2== 0) {
+            int temp = (int) Math.pow(num,pow/2);
+            return temp*temp;
+        }
+        else {
+            int temp = (int) Math.pow(num,(pow-1)/2);
+            return temp*temp*num;
+        }
+    }
 }
