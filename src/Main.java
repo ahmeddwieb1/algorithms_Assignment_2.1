@@ -8,7 +8,6 @@ public class Main {
     }
 
     public static void fun(int a) {
-
         System.out.print(a + " ");
         if (a == 1) {
             return;
