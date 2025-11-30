@@ -1,30 +1,27 @@
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        int[] arr = new int[n];
+//        double[] arr = {72, 96, 12, 18, 81, 20, 6, 2, 54, 1};
+        double[] arr = new double[n];
         for (int i = 0; i < n; i++) {
             arr[i] = in.nextInt();
         }
-        fun(arr);
-    }
-
-    public static void fun(int arr[]) {
-        int sum1 =0 ;
-        int sum2 =0 ;
-        Arrays.sort(arr);
-        for (int i = arr.length-1; i >= 0; i--) {
-            if(sum1>sum2){
-                sum2+=arr[i];
+        for (int i = 0; i < arr.length ; i++) {
+            while (arr[i] % 2 == 0) {
+                arr[i] /= 2;
             }
-            else {
-                sum1+=arr[i];
+            while (arr[i] % 3 == 0) {
+                arr[i] /= 3;
+            }
+            if (arr[i] != arr[0]) {
+                System.out.println("No");
+                return;
             }
         }
-        System.out.println(Math.abs(sum1-sum2));
+        System.out.println("Yes");
     }
 }
